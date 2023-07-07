@@ -80,3 +80,10 @@ exports.TwilioIntegration = functions.https.onRequest(async (request, response) 
   }
   response.status(200).send("Message Sent!");
 });
+
+const functions = require('@google-cloud/functions-framework');
+
+functions.http('helloHttp', (req, res) => {
+  res.send(`Hello ${req.query.name || req.body.name || 'World'}!`);
+});
+
